@@ -19,6 +19,21 @@ app.get('/health', (req, res) => {
     res.json({ success: true, message: 'API running properly' });
 });
 
+// Root route
+app.get('/', (req, res) => {
+    res.json({ 
+        success: true, 
+        message: 'API running properly', 
+        availableRoutes: {
+            health: '/health',
+            users: '/user',
+            stores: '/store',
+            items: '/item',
+            transactions: '/transaction'
+        }
+    });
+});
+
 // Routes
 app.use('/user', userRoute);
 app.use('/store', storeRoute); // Jika ada

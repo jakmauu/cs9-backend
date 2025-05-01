@@ -1,9 +1,10 @@
 const cors = require('cors');
 
-const corsMiddleware = cors({
-    origin: '*', // Izinkan semua origin. Ubah sesuai kebutuhan
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Metode yang diizinkan
-    allowedHeaders: ['Content-Type', 'Authorization'], // Header yang diizinkan
-});
+const corsOptions = {
+  origin: ['https://cs9-frontend-omega.vercel.app', 'http://localhost:3000', 'http://localhost:3001'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
 
-module.exports = corsMiddleware;
+module.exports = cors(corsOptions);
